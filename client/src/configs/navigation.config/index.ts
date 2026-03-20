@@ -1,18 +1,28 @@
 import dashboardsNavigationConfig from './dashboards.navigation.config'
-import uiComponentNavigationConfig from './ui-components.navigation.config'
 import conceptsNavigationConfig from './concepts.navigation.config'
-import authNavigationConfig from './auth.navigation.config'
-import othersNavigationConfig from './others.navigation.config'
-import guideNavigationConfig from './guide.navigation.config'
 import type { NavigationTree } from '@/@types/navigation'
 
-const navigationConfig: NavigationTree[] = [
-    ...dashboardsNavigationConfig,
-    ...conceptsNavigationConfig,
-    ...uiComponentNavigationConfig,
-    ...authNavigationConfig,
-    ...othersNavigationConfig,
-    ...guideNavigationConfig,
+const PROJECT_MANAGEMENT_DASHBOARD_KEYS = new Set([
+    'dashboard.project',
+    'dashboard.analytic',
+])
+const PROJECT_MANAGEMENT_CONCEPT_KEYS = new Set(['concepts.projects'])
+
+const projectManagementNavigationOnly: NavigationTree[] = [
+    ...dashboardsNavigationConfig.map((section) => ({
+        ...section,
+        subMenu: section.subMenu.filter((item) =>
+            PROJECT_MANAGEMENT_DASHBOARD_KEYS.has(item.key),
+        ),
+    })),
+    ...conceptsNavigationConfig.map((section) => ({
+        ...section,
+        subMenu: section.subMenu.filter((item) =>
+            PROJECT_MANAGEMENT_CONCEPT_KEYS.has(item.key),
+        ),
+    })),
 ]
+
+const navigationConfig: NavigationTree[] = projectManagementNavigationOnly
 
 export default navigationConfig
