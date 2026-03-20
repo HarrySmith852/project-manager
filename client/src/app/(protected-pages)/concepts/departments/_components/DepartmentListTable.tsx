@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react'
 import Tag from '@/components/ui/Tag'
 import Tooltip from '@/components/ui/Tooltip'
+import Progress from '@/components/ui/Progress'
 import DataTable from '@/components/shared/DataTable'
 import { TbPencil, TbEye } from 'react-icons/tb'
 import type { ColumnDef } from '@/components/shared/DataTable'
@@ -14,13 +15,13 @@ const statusColor: Record<string, string> = {
 }
 
 const mockDepartments: Department[] = [
-    { id: '1', name: 'Engineering', head: 'Alice Smith', memberCount: 42, status: 'active', description: 'Software and Hardware engineering' },
-    { id: '2', name: 'Human Resources', head: 'Bob Johnson', memberCount: 12, status: 'active', description: 'HR and recruitment' },
-    { id: '3', name: 'Marketing', head: 'Carol Williams', memberCount: 25, status: 'inactive', description: 'Product and Content marketing' },
-    { id: '4', name: 'Sales', head: 'David Brown', memberCount: 30, status: 'active', description: 'Direct and Enterprise Sales' },
-    { id: '5', name: 'Customer Support', head: 'Eve Davis', memberCount: 55, status: 'active', description: '24/7 Support and Success' },
-    { id: '6', name: 'Finance', head: 'Frank Miller', memberCount: 8, status: 'active', description: 'Accounting and Financial Planning' },
-    { id: '7', name: 'Legal', head: 'Grace Taylor', memberCount: 5, status: 'active', description: 'Corporate law and compliance' },
+    { id: '1', name: 'Engineering', head: 'Alice Smith', memberCount: 42, kpi: 95, status: 'active', description: 'Software and Hardware engineering' },
+    { id: '2', name: 'Human Resources', head: 'Bob Johnson', memberCount: 12, kpi: 78, status: 'active', description: 'HR and recruitment' },
+    { id: '3', name: 'Marketing', head: 'Carol Williams', memberCount: 25, kpi: 88, status: 'inactive', description: 'Product and Content marketing' },
+    { id: '4', name: 'Sales', head: 'David Brown', memberCount: 30, kpi: 92, status: 'active', description: 'Direct and Enterprise Sales' },
+    { id: '5', name: 'Customer Support', head: 'Eve Davis', memberCount: 55, kpi: 81, status: 'active', description: '24/7 Support and Success' },
+    { id: '6', name: 'Finance', head: 'Frank Miller', memberCount: 8, kpi: 89, status: 'active', description: 'Accounting and Financial Planning' },
+    { id: '7', name: 'Legal', head: 'Grace Taylor', memberCount: 5, kpi: 98, status: 'active', description: 'Corporate law and compliance' },
 ]
 
 const ActionColumn = ({
@@ -85,6 +86,23 @@ const DepartmentListTable = () => {
                 cell: (props) => {
                     const row = props.row.original
                     return <span>{row.memberCount} Mbmrs</span>
+                },
+            },
+            {
+                header: 'KPI',
+                accessorKey: 'kpi',
+                cell: (props) => {
+                    const row = props.row.original
+                    const colorClass = row.kpi >= 90 ? 'bg-emerald-500' : row.kpi >= 80 ? 'bg-blue-500' : 'bg-amber-500'
+                    return (
+                        <div className="flex items-center gap-2 max-w-[120px]">
+                            <Progress
+                                percent={row.kpi}
+                                size="sm"
+                                customColorClass={colorClass}
+                            />
+                        </div>
+                    )
                 },
             },
             {
