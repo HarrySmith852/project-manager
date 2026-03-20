@@ -52,6 +52,10 @@
             "projectTasksDesc": "إدارة مهام المشروع",
             "projectIssueDesc": "حل مشكلات المشروع"
         },
+        "conceptsDepartments": {
+            "departments": "الأقسام",
+            "departmentsDesc": "إدارة الأقسام التنظيمية"
+        },
         "conceptsOrders": {
             "orders": "الطلبات",
             "orderList": "القائمة",

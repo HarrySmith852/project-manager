@@ -52,6 +52,10 @@
             "projectTasksDesc": "Gestionar las tareas del proyecto",
             "projectIssueDesc": "Resolver problemas del proyecto"
         },
+        "conceptsDepartments": {
+            "departments": "Departamentos",
+            "departmentsDesc": "Gestionar departamentos organizacionales"
+        },
         "conceptsOrders": {
             "orders": "Órdenes",
             "orderList": "Lista",

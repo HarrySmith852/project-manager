@@ -52,6 +52,10 @@
             "projectTasksDesc": "管理项目任务",
             "projectIssueDesc": "解决项目问题"
         },
+        "conceptsDepartments": {
+            "departments": "部门",
+            "departmentsDesc": "管理组织部门"
+        },
         "conceptsOrders": {
             "orders": "订单",
             "orderList": "列表",
