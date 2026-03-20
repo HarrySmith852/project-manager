@@ -1,15 +1,23 @@
-import React from 'react'
 import Container from '@/components/shared/Container'
+import AdaptiveCard from '@/components/shared/AdaptiveCard'
+import DepartmentListTable from './_components/DepartmentListTable'
+import DepartmentListActionTools from './_components/DepartmentListActionTools'
 
 export default function DepartmentsPage() {
     return (
         <Container>
-            <div className="flex items-center justify-between mb-4">
-                <h3>Departments</h3>
-            </div>
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
-                <p>Manage organizational departments from this module.</p>
-            </div>
+            <AdaptiveCard>
+                <div className="flex flex-col gap-4">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                        <div>
+                            <h3>Departments</h3>
+                            <p className="mt-1 text-gray-500">Manage organizational departments from this module.</p>
+                        </div>
+                        <DepartmentListActionTools />
+                    </div>
+                    <DepartmentListTable />
+                </div>
+            </AdaptiveCard>
         </Container>
     )
 }
