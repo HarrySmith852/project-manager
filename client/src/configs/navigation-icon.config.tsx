@@ -143,6 +143,7 @@ const navigationIcon: NavigationIcons = {
     uiGraphChart: <PiChartLineUpDuotone />,
     uiGraphMaps: <PiMapTrifoldDuotone />,
     concepts: <PiLightbulbDuotone />,
+    departments: <PiUsersDuotone />,
     customers: <PiUsersDuotone />,
     customerList: <PiUserListDuotone />,
     customerEdit: <PiPencilSimpleLineDuotone />,

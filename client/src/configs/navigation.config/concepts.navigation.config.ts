@@ -175,6 +175,22 @@ const conceptsNavigationConfig: NavigationTree[] = [
                 ],
             },
             {
+                key: 'concepts.departments',
+                path: `${CONCEPTS_PREFIX_PATH}/departments`,
+                title: 'Departments',
+                translateKey: 'nav.conceptsDepartments.departments',
+                icon: 'departments',
+                type: NAV_ITEM_TYPE_ITEM,
+                authority: [ADMIN, USER],
+                meta: {
+                    description: {
+                        translateKey: 'nav.conceptsDepartments.departmentsDesc',
+                        label: 'Manage organizational departments',
+                    },
+                },
+                subMenu: [],
+            },
+            {
                 key: 'concepts.customers',
                 path: '',
                 title: 'Customers',

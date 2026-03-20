@@ -6,7 +6,7 @@ const PROJECT_MANAGEMENT_DASHBOARD_KEYS = new Set([
     'dashboard.project',
     'dashboard.analytic',
 ])
-const PROJECT_MANAGEMENT_CONCEPT_KEYS = new Set(['concepts.projects'])
+const PROJECT_MANAGEMENT_CONCEPT_KEYS = new Set(['concepts.projects', 'concepts.departments'])
 
 const projectManagementNavigationOnly: NavigationTree[] = [
     ...dashboardsNavigationConfig.map((section) => ({
